@@ -3,19 +3,23 @@ name: Upload Website
 on:
   push:
     branches:
-    - main
+      - main
 
 jobs:
-  deploy:
+  iamvarshith_dev:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    #- uses: jakejarvis/s3-sync-action@master
-      env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET}}
-        AWS_REGION: 'us-east-1'
-    - name: Upload files to S3 with AWS CLI
-      run: |
-          aws s3 sync _site/ s3://${{ secrets.AWS_BUCKET_NAME }} --delete  
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS }}
+# aws-region
+          aws-region: us-east-1( Replace with your AWS Bucket Region)
+
+      - name: Deploy static site to S3 bucket
+# Your bucker name
+        run: aws s3 sync . s3://Bucket_name --delete
