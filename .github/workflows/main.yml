@@ -6,7 +6,7 @@ on:
     - main
 
 jobs:
-  deploy:
+  stage:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@main
@@ -16,7 +16,21 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET}}
         AWS_REGION: 'us-east-1'
+      run: |
+        echo "hello main"
    
-    
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@master
+    - uses: jakejarvis/s3-sync-action@master
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME2 }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET}}
+        AWS_REGION: 'us-east-1'
+      run: |
+        echo "hello master"
+      
 
        
