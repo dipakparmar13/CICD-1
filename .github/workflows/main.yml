@@ -18,8 +18,9 @@ jobs:
 
     - run: |
        echo 'DIAPKADBJNDN NDNJ'
+       pwd
        aws s3 cp index.html s3://productionbranch
-
+       ls
         
 
        
