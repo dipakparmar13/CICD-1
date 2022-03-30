@@ -20,7 +20,7 @@ jobs:
     - run: |
        echo 'DIAPKADBJNDN NDNJ'
        pwd
-       aws s3 sync index.html s3://${{ secrets.AWS_BUCKET_NAME }} --delete  
+       aws s3 sync /home/runner/work/CICD-1/CICD-1/index.html s3://${{ secrets.AWS_BUCKET_NAME }} --delete  
        ls
         
 
