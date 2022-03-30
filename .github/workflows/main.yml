@@ -9,6 +9,9 @@ on:
 jobs:
   stage:
     runs-on: ubuntu-latest
+    environment: 
+      name: prod
+      url: "http://stagingbranch.s3-website-us-east-1.amazonaws.com/"
    
     if: github.ref == 'refs/heads/main'
     steps:
@@ -29,7 +32,9 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-   
+    environment: 
+      name: prod
+      url: "http://productionbranch.s3-website-us-east-1.amazonaws.com/"
    
     if: github.ref == 'refs/heads/master'
     steps:
