@@ -16,7 +16,9 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS }}
         AWS_REGION: 'us-east-1'   # optional: defaults to us-east-
 
-      run: |
-         echo "hello dipak djdjkn"
+    - run: |
+       echo 'DIAPKADBJNDN NDNJ'
+
+        
 
        
