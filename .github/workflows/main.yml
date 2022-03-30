@@ -13,13 +13,13 @@ jobs:
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME}}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY}}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET}}
         AWS_REGION: 'us-east-1'   # optional: defaults to us-east-
 
     - run: |
        echo 'DIAPKADBJNDN NDNJ'
        pwd
-       aws s3 cp ./index.html s3://productionbranch/index.html
+       aws s3 cp ./index.html s3://productionbranch
        ls
         
 
