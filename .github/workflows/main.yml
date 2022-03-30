@@ -18,7 +18,7 @@ jobs:
         AWS_REGION: 'us-east-1'
         run: |
           echo "start"
-          aws s3 sync  index.html s3://productionbranch
+        #aws s3 sync  index.html s3://productionbranch
           echo "start"
          # aws s3 cp index.html s3://productionbranch
        
