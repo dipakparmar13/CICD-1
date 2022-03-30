@@ -12,11 +12,7 @@ jobs:
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
       with:
-<<<<<<< HEAD
         args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
-=======
-        args: --acl public-read --follow-symlinks --delete
->>>>>>> dda523a0f29ae578840f8fc1de5f3123fa64c0d4
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
