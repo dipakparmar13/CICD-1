@@ -10,10 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
-    - uses: jakejarvis/s3-sync-action@master
+    #- uses: jakejarvis/s3-sync-action@master
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET}}
         AWS_REGION: 'us-east-1'
-       
+    - name: Upload files to S3 with AWS CLI
+      run: |
+          aws s3 sync _site/ s3://${{ secrets.S3_BUCKET }} --delete  
