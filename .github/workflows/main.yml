@@ -17,11 +17,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET}}
         AWS_REGION: 'us-east-1'
    
-    - run: |
-       echo 'DIAPKADBJNDN NDNJ'
-       pwd
-       aws s3 sync ./index.html s3://${{ secrets.AWS_BUCKET_NAME }} --delete  
-       ls
-        
+    
 
        
